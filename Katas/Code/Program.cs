@@ -26,4 +26,13 @@ Console.WriteLine("K Value is " + playingWithDigits.KValue(89, 1));
 Console.WriteLine("K Value is " + playingWithDigits.KValue(92, 1));
 Console.WriteLine("K Value is " + playingWithDigits.KValue(46288, 3));
 
+Console.WriteLine("K Value is " + playingWithDigits.KValue(41, 5)); //1025
+Console.WriteLine("K Value is " + playingWithDigits.KValue(114, 3)); //1026
+Console.WriteLine("K Value is " + playingWithDigits.KValue(8, 3)); //512
+
+
+//BenchmarkRunner.Run<PwdBenchamark>();
+
 #endregion
+
+

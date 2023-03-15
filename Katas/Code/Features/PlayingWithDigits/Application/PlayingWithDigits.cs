@@ -11,7 +11,7 @@ namespace Code.Features.PlayingWithDigits.Application
             if(n <= default(int) || p <= default(int))
                 return 0;
 
-            var result = GeneratePowResult(n, p);
+            long result = long.Parse(GeneratePowResult(n, p).ToString());
 
             var k = result / n;
 
