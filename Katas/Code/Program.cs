@@ -12,6 +12,8 @@ using Code.Features.PrinterErrors.Benchmarks;
 using Code.Features.PrinterErrors.Domain;
 using Code.Features.RegexValidadePIN.Application;
 using Code.Features.RegexValidadePIN.Domain;
+using Code.Features.SplitStrings.Application;
+using Code.Features.SplitStrings.Domain;
 using System.Runtime.InteropServices;
 
 #region Credit Card Number
@@ -60,6 +62,18 @@ Console.WriteLine(printer.Print("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmm
 Console.WriteLine(printer.Print("aaabbbbhaijjjm"));
 Console.WriteLine(printer.Print("aaaxbbbbyyhwawiwjjjwwm"));
 
-BenchmarkRunner.Run<PeBenchmarks>();
+//BenchmarkRunner.Run<PeBenchmarks>();
+
+#endregion
+
+#region Split Strings
+
+ISplitString splitString = new SplitString();
+
+var splitStringValues = string.Join(' ',splitString.SplitInTwoCharacteres("abc"));
+var splitStringValuesSecondTest = string.Join(' ', splitString.SplitInTwoCharacteres("abcdef"));
+
+Console.WriteLine(splitStringValues);
+Console.WriteLine(splitStringValuesSecondTest);
 
 #endregion
