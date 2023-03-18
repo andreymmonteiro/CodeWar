@@ -7,6 +7,9 @@ using Code.Features.CreditCard.Domain;
 using Code.Features.PlayingWithDigits.Application;
 using Code.Features.PlayingWithDigits.Benchmarks;
 using Code.Features.PlayingWithDigits.Domain;
+using Code.Features.PrinterErrors.Application;
+using Code.Features.PrinterErrors.Benchmarks;
+using Code.Features.PrinterErrors.Domain;
 using Code.Features.RegexValidadePIN.Application;
 using Code.Features.RegexValidadePIN.Domain;
 using System.Runtime.InteropServices;
@@ -48,3 +51,15 @@ Console.WriteLine("Should be true: " + validate.IsValidPIN("123476"));
 
 #endregion
 
+
+#region Printer Errors
+
+IPrinterError printer = new PrinterError();
+
+Console.WriteLine(printer.Print("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"));
+Console.WriteLine(printer.Print("aaabbbbhaijjjm"));
+Console.WriteLine(printer.Print("aaaxbbbbyyhwawiwjjjwwm"));
+
+BenchmarkRunner.Run<PeBenchmarks>();
+
+#endregion
