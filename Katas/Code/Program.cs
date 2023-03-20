@@ -7,6 +7,9 @@ using Code.Features.CreditCard.Domain;
 using Code.Features.DigitalRoot.Application;
 using Code.Features.DigitalRoot.Benchmarks;
 using Code.Features.DigitalRoot.Domain;
+using Code.Features.FindDivisor.Application;
+using Code.Features.FindDivisor.Benchmarks;
+using Code.Features.FindDivisor.Domain;
 using Code.Features.PlayingWithDigits.Application;
 using Code.Features.PlayingWithDigits.Benchmarks;
 using Code.Features.PlayingWithDigits.Domain;
@@ -87,4 +90,16 @@ Console.WriteLine(digitalRoot.GetSumOfDigits(493193));
 Console.WriteLine(digitalRoot.GetSumOfDigits(86167));
 
 //BenchmarkRunner.Run<DrBenchamark>();
+#endregion
+
+#region Find Divisor
+
+IFindDivisor divisorFinder = new FindDivisor();
+
+var resultDivisors = divisorFinder.GetDivisors(12);
+
+//BenchmarkRunner.Run<FdBenchmark>();
+
+Console.WriteLine(resultDivisors);
+
 #endregion
