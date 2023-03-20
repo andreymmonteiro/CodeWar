@@ -4,6 +4,9 @@ using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using Code.Features.CreditCard.Application;
 using Code.Features.CreditCard.Domain;
+using Code.Features.DigitalRoot.Application;
+using Code.Features.DigitalRoot.Benchmarks;
+using Code.Features.DigitalRoot.Domain;
 using Code.Features.PlayingWithDigits.Application;
 using Code.Features.PlayingWithDigits.Benchmarks;
 using Code.Features.PlayingWithDigits.Domain;
@@ -53,7 +56,6 @@ Console.WriteLine("Should be true: " + validate.IsValidPIN("123476"));
 
 #endregion
 
-
 #region Printer Errors
 
 IPrinterError printer = new PrinterError();
@@ -76,4 +78,13 @@ var splitStringValuesSecondTest = string.Join(' ', splitString.SplitInTwoCharact
 Console.WriteLine(splitStringValues);
 Console.WriteLine(splitStringValuesSecondTest);
 
+#endregion
+
+#region Digital Root
+IDigitalRoot digitalRoot = new DigitalRoot();
+
+Console.WriteLine(digitalRoot.GetSumOfDigits(493193));
+Console.WriteLine(digitalRoot.GetSumOfDigits(86167));
+
+//BenchmarkRunner.Run<DrBenchamark>();
 #endregion
