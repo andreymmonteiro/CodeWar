@@ -10,6 +10,8 @@ using Code.Features.DigitalRoot.Domain;
 using Code.Features.FindDivisor.Application;
 using Code.Features.FindDivisor.Benchmarks;
 using Code.Features.FindDivisor.Domain;
+using Code.Features.MovingZerosToEnd.Application;
+using Code.Features.MovingZerosToEnd.Domain;
 using Code.Features.PlayingWithDigits.Application;
 using Code.Features.PlayingWithDigits.Benchmarks;
 using Code.Features.PlayingWithDigits.Domain;
@@ -20,6 +22,9 @@ using Code.Features.RegexValidadePIN.Application;
 using Code.Features.RegexValidadePIN.Domain;
 using Code.Features.SplitStrings.Application;
 using Code.Features.SplitStrings.Domain;
+using Code.Features.YourOrderPlease.Application;
+using Code.Features.YourOrderPlease.Benchmarks;
+using Code.Features.YourOrderPlease.Domain;
 using System.Runtime.InteropServices;
 
 #region Credit Card Number
@@ -100,6 +105,23 @@ var resultDivisors = divisorFinder.GetDivisors(12);
 
 //BenchmarkRunner.Run<FdBenchmark>();
 
-Console.WriteLine(resultDivisors);
+Console.WriteLine(String.Join(", ",resultDivisors.Select(s => s.ToString())));
+
+#endregion
+
+#region Your Order Please
+
+IYourOrderPlease yourOrderPlease = new YourOrderPlease();
+yourOrderPlease.SortString("is2 Thi1s T4est 3a");
+
+//BenchmarkRunner.Run<YopBenchmarks>();
+
+#endregion
+
+#region Moving zeros to end
+
+IMovingZerosToEnd movingZerosToEnd = new MovingZerosToEnd();
+
+movingZerosToEnd.Ordernate(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 });
 
 #endregion

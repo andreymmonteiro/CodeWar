@@ -19,11 +19,11 @@ namespace Code.Features.FindDivisor.Application
                     arrayDivisors[resize] = i;
                     resize++;
                 }
-                resize++;
                 
             }
 
             Array.Resize(ref arrayDivisors, resize);
+
             return arrayDivisors.Length == default ? null : arrayDivisors;
         }
     }

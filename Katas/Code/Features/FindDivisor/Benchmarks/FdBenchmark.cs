@@ -15,8 +15,12 @@ namespace Code.Features.FindDivisor.Benchmarks
 
             var arrayDivisors = new List<int>();
             for (int i = 2; i < value; i++)
+            {
                 if (value % i == 0)
+                {
                     arrayDivisors.Add(i);
+                }
+            }
 
             return arrayDivisors.ToArray();
         }
@@ -31,20 +35,18 @@ namespace Code.Features.FindDivisor.Benchmarks
 
             var arrayDivisors = new int[value];
             int resize = default;
-            int index = default;
 
             for (int i = 2; i < value; i++)
             {
                 if (value % i == 0)
                 {
-                    arrayDivisors[index] = i;
-                    index++;
+                    arrayDivisors[resize] = i;
+                    resize++;
                 }
                 resize++;
-
             }
 
-            Array.Resize(ref arrayDivisors, index);
+            Array.Resize(ref arrayDivisors, resize);
             return arrayDivisors;
         }
     }
