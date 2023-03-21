@@ -20,6 +20,9 @@ using Code.Features.PrinterErrors.Benchmarks;
 using Code.Features.PrinterErrors.Domain;
 using Code.Features.RegexValidadePIN.Application;
 using Code.Features.RegexValidadePIN.Domain;
+using Code.Features.Rot13.Application;
+using Code.Features.Rot13.Benchmarks;
+using Code.Features.Rot13.Domain;
 using Code.Features.SplitStrings.Application;
 using Code.Features.SplitStrings.Domain;
 using Code.Features.YourOrderPlease.Application;
@@ -123,5 +126,15 @@ yourOrderPlease.SortString("is2 Thi1s T4est 3a");
 IMovingZerosToEnd movingZerosToEnd = new MovingZerosToEnd();
 
 movingZerosToEnd.Ordernate(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 });
+
+#endregion
+
+#region Rot13
+
+IRot13 rot13 = new Rot13();
+BenchmarkRunner.Run<R13Benchmarks>();
+
+//rot13.GenerateCipher("test");
+
 
 #endregion
