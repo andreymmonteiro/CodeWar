@@ -25,6 +25,8 @@ using Code.Features.Rot13.Benchmarks;
 using Code.Features.Rot13.Domain;
 using Code.Features.SplitStrings.Application;
 using Code.Features.SplitStrings.Domain;
+using Code.Features.WeightForWeight.Application;
+using Code.Features.WeightForWeight.Domain;
 using Code.Features.YourOrderPlease.Application;
 using Code.Features.YourOrderPlease.Benchmarks;
 using Code.Features.YourOrderPlease.Domain;
@@ -132,9 +134,25 @@ movingZerosToEnd.Ordernate(new int[] { 1, 2, 0, 1, 0, 1, 0, 3, 0, 1 });
 #region Rot13
 
 IRot13 rot13 = new Rot13();
-BenchmarkRunner.Run<R13Benchmarks>();
+//BenchmarkRunner.Run<R13Benchmarks>();
 
 //rot13.GenerateCipher("test");
 
+
+#endregion
+
+#region Weight For Weight
+IWeightForWeight weightForWeight = new WeightForWeight();
+
+Console.WriteLine($"Weight ordenated: {weightForWeight.OrderWeight("103 123 4444 99 2000")}");
+
+Console.WriteLine($"Weight ordenated: {weightForWeight.OrderWeight("496636983114762 59544965313 85246814996697 3 16 9 38 95 11312...")}");
+
+Console.WriteLine($"Weight ordenated: {weightForWeight.OrderWeight("103 123 4444 99 2000")}");
+
+
+#endregion
+
+#region Adding Big Numbers
 
 #endregion
