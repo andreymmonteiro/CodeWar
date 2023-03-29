@@ -2,6 +2,8 @@
 
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
+using Code.Features.AddingBigNumbers.Application;
+using Code.Features.AddingBigNumbers.Domain;
 using Code.Features.CreditCard.Application;
 using Code.Features.CreditCard.Domain;
 using Code.Features.DigitalRoot.Application;
@@ -154,5 +156,8 @@ Console.WriteLine($"Weight ordenated: {weightForWeight.OrderWeight("103 123 4444
 #endregion
 
 #region Adding Big Numbers
+IAddingBigNumbers addingBigNumbers = new AddingBigNumbers();
+
+Console.WriteLine($"Sum of big numbers: {addingBigNumbers.Add("321321321564654", "7897897898794")}");
 
 #endregion
