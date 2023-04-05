@@ -1,38 +1,32 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using BenchmarkDotNet.Attributes;
-using BenchmarkDotNet.Running;
 using Code.Features.AddingBigNumbers.Application;
 using Code.Features.AddingBigNumbers.Domain;
 using Code.Features.CreditCard.Application;
 using Code.Features.CreditCard.Domain;
 using Code.Features.DigitalRoot.Application;
-using Code.Features.DigitalRoot.Benchmarks;
 using Code.Features.DigitalRoot.Domain;
 using Code.Features.FindDivisor.Application;
-using Code.Features.FindDivisor.Benchmarks;
 using Code.Features.FindDivisor.Domain;
+using Code.Features.MostFrequentlyUsedWords.Application;
+using Code.Features.MostFrequentlyUsedWords.Domain;
 using Code.Features.MovingZerosToEnd.Application;
 using Code.Features.MovingZerosToEnd.Domain;
 using Code.Features.PlayingWithDigits.Application;
-using Code.Features.PlayingWithDigits.Benchmarks;
 using Code.Features.PlayingWithDigits.Domain;
 using Code.Features.PrinterErrors.Application;
-using Code.Features.PrinterErrors.Benchmarks;
 using Code.Features.PrinterErrors.Domain;
 using Code.Features.RegexValidadePIN.Application;
 using Code.Features.RegexValidadePIN.Domain;
 using Code.Features.Rot13.Application;
-using Code.Features.Rot13.Benchmarks;
 using Code.Features.Rot13.Domain;
 using Code.Features.SplitStrings.Application;
 using Code.Features.SplitStrings.Domain;
 using Code.Features.WeightForWeight.Application;
 using Code.Features.WeightForWeight.Domain;
 using Code.Features.YourOrderPlease.Application;
-using Code.Features.YourOrderPlease.Benchmarks;
 using Code.Features.YourOrderPlease.Domain;
-using System.Runtime.InteropServices;
+using NUnit.Framework;
 
 #region Credit Card Number
 
@@ -159,5 +153,18 @@ Console.WriteLine($"Weight ordenated: {weightForWeight.OrderWeight("103 123 4444
 IAddingBigNumbers addingBigNumbers = new AddingBigNumbers();
 
 Console.WriteLine($"Sum of big numbers: {addingBigNumbers.Add("321321321564654", "7897897898794")}");
+
+#endregion
+
+
+#region Most Frequently used words
+IMostFrequentlyUsedWords mostFrequentlyUsedWords = new MostFrequentlyUsedWords();
+
+Console.WriteLine($@"The most frequently used words are: {string.Join(", ", mostFrequentlyUsedWords.Top3(string.Join("\n", new string[]{"In a village of La Mancha, the name of which I have no desire to call to",
+                  "mind, there lived not long since one of those gentlemen that keep a lance",
+                  "in the lance-rack, an old buckler, a lean hack, and a greyhound for",
+                  "coursing. An olla of rather more beef than mutton, a salad on most",
+                  "nights, scraps on Saturdays, lentils on Fridays, and a pigeon or so extra",
+                  "on Sundays, made away with three-quarters of his income." })))}");
 
 #endregion
