@@ -6,6 +6,8 @@ using Code.Features.CreditCard.Application;
 using Code.Features.CreditCard.Domain;
 using Code.Features.DigitalRoot.Application;
 using Code.Features.DigitalRoot.Domain;
+using Code.Features.DirectionsReduction.Application;
+using Code.Features.DirectionsReduction.Domain;
 using Code.Features.FindDivisor.Application;
 using Code.Features.FindDivisor.Domain;
 using Code.Features.MostFrequentlyUsedWords.Application;
@@ -22,10 +24,12 @@ using Code.Features.Rot13.Application;
 using Code.Features.Rot13.Domain;
 using Code.Features.SplitStrings.Application;
 using Code.Features.SplitStrings.Domain;
+using Code.Features.StringsEndsWith.Domain;
 using Code.Features.WeightForWeight.Application;
 using Code.Features.WeightForWeight.Domain;
 using Code.Features.YourOrderPlease.Application;
 using Code.Features.YourOrderPlease.Domain;
+using Code.Features.StringsEndsWith.Application;
 using NUnit.Framework;
 
 #region Credit Card Number
@@ -166,5 +170,28 @@ Console.WriteLine($@"The most frequently used words are: {string.Join(", ", most
                   "coursing. An olla of rather more beef than mutton, a salad on most",
                   "nights, scraps on Saturdays, lentils on Fridays, and a pigeon or so extra",
                   "on Sundays, made away with three-quarters of his income." })))}");
+
+#endregion
+
+#region Direcions reductions
+
+IDirectionsReduction directionsReduction = new DirectionsReduction();
+
+directionsReduction.Reducer(new string[] { "NORTH", "WEST", "SOUTH", "EAST", "WEST", "NORTH", "EAST" });
+
+directionsReduction.Reducer(new string[] { "NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST" });
+
+directionsReduction.Reducer(new string[] { "NORTH", "WEST", "SOUTH", "EAST", "EAST" });
+
+directionsReduction.Reducer(new string[] { "NORTH", "SOUTH", "NORTH", "SOUTH", "NORTH", "SOUTH", "NORTH", "SOUTH", "SOUTH" });
+
+
+
+#endregion
+
+#region Strings ends with
+
+IStringsEndsWith stringsEndsWith = new StringsEndsWith();
+Console.Write($"This is string ends with: {stringsEndsWith.IsStringEndsWith("abc", "bc")}");
 
 #endregion
