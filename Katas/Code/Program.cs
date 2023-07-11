@@ -31,6 +31,10 @@ using Code.Features.YourOrderPlease.Application;
 using Code.Features.YourOrderPlease.Domain;
 using Code.Features.StringsEndsWith.Application;
 using NUnit.Framework;
+using Code.Features.SimplePig.Application;
+using Code.Features.SimplePig.Domain;
+using Code.Features.Greed.Application;
+using Code.Features.Greed.Domain;
 
 #region Credit Card Number
 
@@ -195,3 +199,18 @@ IStringsEndsWith stringsEndsWith = new StringsEndsWith();
 Console.Write($"This is string ends with: {stringsEndsWith.IsStringEndsWith("abc", "bc")}");
 
 #endregion
+
+
+
+ISimplePigLatin SimplePigLatin = new SimplePigLatin();
+
+SimplePigLatin.PigIt("Hello world !");
+
+
+IGreed greed = new Greed();
+
+greed.Score(new int[] { 1, 1, 1, 3, 1 });
+
+greed.Score(new int[] { 2, 4, 4, 5, 4 });
+
+
